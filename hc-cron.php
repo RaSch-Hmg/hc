@@ -2,8 +2,8 @@
 
 require_once('config.php'); 
 
-if(!file_exists($controlFile)){
-
+if(file_exists($controlFile)){
+    
 	$xml = simplexml_load_file($controlFile);
 	foreach($xml->children() as $child) {
         $role = $child->attributes();
@@ -38,14 +38,15 @@ if(!file_exists($controlFile)){
 				$offDate  = $date->format('Y-m-d').' '.$timeOff.':00';
 			}
 			if ( (strtotime($aktDate) > strtotime($onDate)) and ( strtotime($offDate) > strtotime($aktDate)  ) )
-				$output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOn);
+				echo $output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOn);
 			else
-				$output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOff);	
+				echo $output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOff);	
 		}
 		elseif ( $state == 'on' )
-			$output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOn);
+			echo $output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOn);
 		else
-			$output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOff);
+			echo $output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend '.$codeOff);
 	}
+}	
 ?>	
 	

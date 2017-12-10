@@ -93,6 +93,8 @@ if( isset($_POST['submit']) ) {
 	$fp = fopen($controlFile, 'w');
 	fwrite($fp, $xml);
     fclose($fp);
+	
+	include 'hc-cron.php';
 }
 
 ?> 
@@ -127,11 +129,13 @@ if( isset($_POST['submit']) ) {
 		}
 		
 		footer {
-		  position:absolute;
+			position: fixed; 
+			left: 0px;
+			bottom: 0px; 
+
+			width: 100%; 
 		  padding: 10px;
-		  bottom: 0;
-		  left: 0;
-		  right: 0;
+		  
 		  color:#fff;
 		  background-color:#2C3840;
 		}
@@ -178,7 +182,7 @@ if( isset($_POST['submit']) ) {
 	}
 ?>	
 	
-	<div class="row" style="margin-top:2rem;" >
+	<div class="row" style="margin-top:2rem; margin-bottom:4rem;" >
 		<div class="small-12 medium-4 columns">
 			<input type="submit" name="submit" class="success button expanded" value="Speichern"  />
 		</div>

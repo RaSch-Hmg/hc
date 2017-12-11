@@ -6,19 +6,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', FALSE);
 header('Pragma: no-cache');
 
-
-/*
-sudo visudo
-
-www-data ALL=NOPASSWD:/home/pi/433Utils/RPi_utils/codesend
-
-chmod 777
-
-*/
-
-
-//$output = shell_exec('sudo /home/pi/433Utils/RPi_utils/codesend 5510420');
-//echo "$output";
 require_once('config.php'); 
 
 if(!file_exists($controlFile)){
